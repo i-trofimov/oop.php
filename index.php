@@ -17,8 +17,6 @@
 			var_dump($product1 instanceof ShoppingCard);
 			var_dump($product2 instanceof Card);
 			var_dump($product3);
-			
-			<p>Пример</p>
 		?>
 	</body>
 </html>
