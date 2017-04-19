@@ -6,19 +6,25 @@
 	</head>
 	<body>
 		<?php
-			class ShoppingCard {
-				
+			class User {
+				public $name = 'Имя';
+				public $password = 'Пароль';
+				public $email = 'Eмейл';
+				public $city = 'Город';
 			}
 			
-			$product1 = new ShoppingCard();
-			$product2 = new ShoppingCard();
-			$product3 = new ShoppingCard();
+			$admin = new User();
+			echo $admin->name;
 			
-			var_dump($product1 instanceof ShoppingCard);
-			var_dump($product2 instanceof Card);
-			var_dump($product3);
+			echo '<br/><br/>';
 			
-			<p>Пример</p>
+			$user1 = new User();
+			$user1->name = 'Вася';
+			$user1->password = 'qwerty';
+			$user1->email = 'vasya@admin.ru';
+			$user1->city = 'Moscow';
+			$user1->surname = 'Ivanov';
+			echo $user1->name . ', ' . $user1->surname . ', ' . $user1->password . ', ' . $user1->email . ', ' . $user1->city;
 		?>
 	</body>
 </html>
