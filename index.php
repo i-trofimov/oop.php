@@ -6,40 +6,50 @@
 	</head>
 	<body>
 		<?php
-			class User {
+			class User 
+			{
 				public $name;
 				public $password;
 				public $email;
 				public $city;
 				
-				public function __construct($name, $password, $email, $city) {
+				public function __construct($name, $password, $email, $city) 
+				{
 					$this->name = $name;
 					$this->password = $password;
 					$this->email = $email;
 					$this->city = $city;
 				}
 				
-				public function getInfo() {
-					return "{$this->name};" . "{$this->password};" . "{$this->email};" . "{$this->city};";
+				public function getInfo() 
+				{
+					$information = "{$this->name};" . "{$this->password};" . "{$this->email};" . "{$this->city};";
+					return $information;
 				}
 			}
 			
-			class User1 {
-				private static $name;
+			class Moderator extends User
+			{
+				public $info;
+				public $rights;
 				
-				public static function setName($name1)
+				public function __construct($name, $password, $email, $city, $info, $rights)
 				{
-					self::$name = $name1;
+					parent::__construct($name, $password, $email, $city);
+					$this->info = $info;
+					$this->rights = $rights;
 				}
 				
-				public static function getName()
+				public function getInfo()
 				{
-					return self::$name;
+					$information = parent::getInfo();
+					$information .= "{$this->info};" . "{$this->rights};";
+					return $information;
 				}
 			}
 			
-			User1::setName('Alex');
-			echo User1::getName();
+			$moder = new Moderator('Alexandr', '654321', 'moder@email.com', 'Moscow', 'Moderator', 'True');
+			echo $moder->getInfo();
 		
 		?>
 	</body>
