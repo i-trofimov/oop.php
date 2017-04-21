@@ -7,22 +7,26 @@
 	<body>
 		<?php
 			class User {
-				public $name = 'Имя';
-				//public $surname = 'Фамилия';
-				public $password = 'Пароль';
-				public $email = 'Eмейл';
-				public $city = 'Город';
+				public $name;
+				public $password;
+				public $email;
+				public $city;
 				
-				function getInfo()
-				{
-					return $this->name . ' ' . $this->surname;
+				public function __construct($name, $password, $email, $city) {
+					$this->name = $name;
+					$this->password = $password;
+					$this->email = $email;
+					$this->city = $city;
+				}
+				
+				public function getInfo() {
+					return "{$this->name};" . "{$this->password};" . "{$this->email};" . "{$this->city};";
 				}
 			}
 			
-			$class = new User();
-			$class->name = 'Alexey ';
-			$class->surname = 'Ivanov';
-			echo $class->getInfo();
+			$user1= new User('Alex', '123456', 'alex@email.com', 'Moscow');
+			echo $user1->getInfo();
+		
 		?>
 	</body>
 </html>
