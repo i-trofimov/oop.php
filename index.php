@@ -61,12 +61,33 @@
 			//User1::$name = 'Alexandr ';
 			//echo User1::$name;
 			
-			class User1
+			//class User1
+			//{
+			//	const SOME_CONST = 314;
+			//}
+			
+			//echo User1::SOME_CONST;
+			
+			abstract class User1
 			{
-				const SOME_CONST = 314;
+				public $name;
+				public $status;
+				
+				abstract public function getStatus();
 			}
 			
-			echo User1::SOME_CONST;
+			class Admin extends User1
+			{
+				public function getStatus()
+				{
+					echo 'Admin';
+				}
+			}
+			
+			$admin = new Admin();
+			$admin->getStatus();
+			
+			
 			
 			
 		?>
