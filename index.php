@@ -6,82 +6,30 @@
 	</head>
 	<body>
 		<?php
-			class User 
+			trait Hello
 			{
-				public $name;
-				public $password;
-				public $email;
-				public $city;
-				
-				public function __construct($name, $password, $email, $city) 
+				public function sayHello()
 				{
-					$this->name = $name;
-					$this->password = $password;
-					$this->email = $email;
-					$this->city = $city;
-				}
-				
-				public function getInfo() 
-				{
-					$information = "{$this->name};" . "{$this->password};" . "{$this->email};" . "{$this->city};";
-					return $information;
+					echo 'Hello';
 				}
 			}
 			
-			class Moderator extends User
+			trait World
 			{
-				public $info;
-				public $rights;
-				
-				public function __construct($name, $password, $email, $city, $info, $rights)
+				public function sayWorld()
 				{
-					parent::__construct($name, $password, $email, $city);
-					$this->info = $info;
-					$this->rights = $rights;
-				}
-				
-				public function getInfo()
-				{
-					$information = parent::getInfo();
-					$information .= "{$this->info};" . "{$this->rights};";
-					return $information;
+					echo 'World';
 				}
 			}
 			
-			interface FirstInterface
+			class myHelloWorld
 			{
-				public function getName();
+				use Hello, World;
 			}
 			
-			interface SecondInterface
-			{
-				public function getStatus();
-			}
-			
-			interface Thirs extends FirstInterface, SecondInterface
-			{
-				
-			}
-			
-			class Test implements FirstInterface, SecondInterface
-			{
-				public $name = 'Alexey';
-				public $status = 'Admin';
-				
-				public function getName()
-				{
-					echo $this->name;
-				}
-				
-				public function getStatus()
-				{
-					echo $this->status;
-				}
-			}
-			
-			$obj = new Test();
-			$obj->getName();
-			$obj->getStatus();
+			$obj = new myHelloWorld();
+			$obj->sayHello();
+			$obj->sayWorld();
 		?>
 	</body>
 </html>
