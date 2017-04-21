@@ -51,15 +51,24 @@
 			//$moder = new Moderator('Alexandr', '654321', 'moder@email.com', 'Moscow', 'Moderator', 'True');
 			//echo $moder->getInfo();
 			
+			//class User1
+			//{
+			//	public static $name;
+			//	
+			//	
+			//}
+			
+			//User1::$name = 'Alexandr ';
+			//echo User1::$name;
+			
 			class User1
 			{
-				public static $name;
+				const SOME_CONST = 314;
 			}
 			
-			User1::$name = 'Alexandr ';
-			#echo User1::$name;
+			echo User1::SOME_CONST;
 			
-			echo phpinfo();
+			
 		?>
 	</body>
 </html>
