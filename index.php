@@ -24,8 +24,22 @@
 				}
 			}
 			
-			$user1= new User('Alex', '123456', 'alex@email.com', 'Moscow');
-			echo $user1->getInfo();
+			class User1 {
+				private static $name;
+				
+				public static function setName($name1)
+				{
+					self::$name = $name1;
+				}
+				
+				public static function getName()
+				{
+					return self::$name;
+				}
+			}
+			
+			User1::setName('Alex');
+			echo User1::getName();
 		
 		?>
 	</body>
