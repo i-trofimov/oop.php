@@ -48,48 +48,40 @@
 				}
 			}
 			
-			//$moder = new Moderator('Alexandr', '654321', 'moder@email.com', 'Moscow', 'Moderator', 'True');
-			//echo $moder->getInfo();
-			
-			//class User1
-			//{
-			//	public static $name;
-			//	
-			//	
-			//}
-			
-			//User1::$name = 'Alexandr ';
-			//echo User1::$name;
-			
-			//class User1
-			//{
-			//	const SOME_CONST = 314;
-			//}
-			
-			//echo User1::SOME_CONST;
-			
-			abstract class User1
+			interface FirstInterface
 			{
-				public $name;
-				public $status;
-				
-				abstract public function getStatus();
+				public function getName();
 			}
 			
-			class Admin extends User1
+			interface SecondInterface
 			{
+				public function getStatus();
+			}
+			
+			interface Thirs extends FirstInterface, SecondInterface
+			{
+				
+			}
+			
+			class Test implements FirstInterface, SecondInterface
+			{
+				public $name = 'Alexey';
+				public $status = 'Admin';
+				
+				public function getName()
+				{
+					echo $this->name;
+				}
+				
 				public function getStatus()
 				{
-					echo 'Admin';
+					echo $this->status;
 				}
 			}
 			
-			$admin = new Admin();
-			$admin->getStatus();
-			
-			
-			
-			
+			$obj = new Test();
+			$obj->getName();
+			$obj->getStatus();
 		?>
 	</body>
 </html>
