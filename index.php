@@ -48,9 +48,18 @@
 				}
 			}
 			
-			$moder = new Moderator('Alexandr', '654321', 'moder@email.com', 'Moscow', 'Moderator', 'True');
-			echo $moder->getInfo();
-		
+			//$moder = new Moderator('Alexandr', '654321', 'moder@email.com', 'Moscow', 'Moderator', 'True');
+			//echo $moder->getInfo();
+			
+			class User1
+			{
+				public static $name;
+			}
+			
+			User1::$name = 'Alexandr ';
+			#echo User1::$name;
+			
+			echo phpinfo();
 		?>
 	</body>
 </html>
